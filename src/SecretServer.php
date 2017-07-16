@@ -1,0 +1,6 @@
+<?
+namespace Sinkab\SecretServer;
+
+
+
+?>

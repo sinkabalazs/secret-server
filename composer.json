@@ -1,0 +1,23 @@
+{
+  "name": "sinkab/secret-server",
+  "description": "This is a server that store some secret, and it publish those at an unique URL",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Balázs Sinka",
+      "email": "sinkabalazs@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "slim/slim": "^3.0",
+    "php" : "^5.5 || ^7.0",
+    "ext-mysqli": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Sinkab\\": "src/"
+    }
+  },
+  "license": "MIT"
+}
