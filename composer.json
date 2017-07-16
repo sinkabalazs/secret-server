@@ -1,7 +1,9 @@
 {
   "name": "sinkab/secret-server",
-  "description": "This is a server that store some secret, and it publish those at an unique URL",
   "type": "library",
+  "description": "This is a server that store some secret, and it publish those at an unique URL",
+  "homepage": "https://github.com/sinkabalazs/secret-server",
+  "license": "MIT",
   "authors": [
     {
       "name": "Balázs Sinka",
@@ -18,6 +20,5 @@
     "psr-4": {
       "Sinkab\\": "src/"
     }
-  },
-  "license": "MIT"
+  }
 }
