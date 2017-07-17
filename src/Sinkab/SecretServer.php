@@ -133,7 +133,7 @@ FORM;
             $uri = $request->getUri();
             $scheme = $uri->getScheme();
             $host = $uri->getHost();
-            $action = $scheme.'://'.$host.'/v1/json/secret';
+            $action = $scheme.'://'.$host.'/v1/xml/secret';
 
             $form = <<<FORM
             <h2>Add a secret</h2>
