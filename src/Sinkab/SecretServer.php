@@ -109,8 +109,10 @@ class SecretServer extends \Slim\App {
             return $new_resp;
         });
         $this->get('/v1/json/secret', function (Request $request, Response $response){
-            $server = $request->getServerParams();
-            $action = $server['REQUEST_SCHEME'].'://'.$server['HTTP_HOST'].'/v1/json/secret';
+            $uri = $request->getUri();
+            $scheme = $uri->getScheme();
+            $host = $uri->getHost();
+            $action = $scheme.'://'.$host.'/v1/json/secret';
 
             $form = <<<FORM
             <h2>Add a secret</h2>
@@ -128,8 +130,10 @@ FORM;
             return $response;
         });
         $this->get('/v1/xml/secret', function (Request $request, Response $response){
-            $server = $request->getServerParams();
-            $action = $server['REQUEST_SCHEME'].'://'.$server['HTTP_HOST'].'/v1/xml/secret';
+            $uri = $request->getUri();
+            $scheme = $uri->getScheme();
+            $host = $uri->getHost();
+            $action = $scheme.'://'.$host.'/v1/json/secret';
 
             $form = <<<FORM
             <h2>Add a secret</h2>
