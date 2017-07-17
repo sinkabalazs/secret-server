@@ -11,22 +11,17 @@
 <pre>
 &lt;?php
 
-    require_once __DIR__.'/config/settings.inc';<br>
     require __DIR__.'/vendor/autoload.php';
+    //setting up your database parameters
+    $config['db'] = [
+        'host' => 'localhost',
+        'user' => 'dbuser',
+        'password' => 'dbuserpassword',
+        'database_name' => 'secret_server'
+    ];
     
     $secret = new \Sinkab\SecretServer($config);
 </pre>
 
-<h3>Configure databse</h3>
-
-<p>Edit config/settings.inc, set up your databse informations</p>
-<pre>
-$config['db'] = [
-    'host' => 'localhost',
-    'user' => 'dbuser',
-    'password' => 'dbuserpassword',
-    'database_name' => 'secret_server'
-];
-</pre>
 </body>
 </html>
