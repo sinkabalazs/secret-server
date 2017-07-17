@@ -95,7 +95,6 @@ class SecretServer extends \Slim\App {
 
         $this->get('/v1/xml/secret/{hash}', function (Request $request, Response $response){
             $this->requestType = 'xml';
-            //$response->withoutHeader();
             \Sinkab\SecretServer::getSecret($request,$this);
             $new_resp = $response->withStatus($this->status,$this->status_msg)->withHeader('ContentType',$this->content_type);
             $new_resp->getBody()->write($this->resp_body);
