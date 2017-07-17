@@ -108,6 +108,44 @@ class SecretServer extends \Slim\App {
             $new_resp->getBody()->write($this->resp_body);
             return $new_resp;
         });
+        $this->get('/v1/json/secret', function (Request $request, Response $response){
+            $server = $request->getServerParams();
+            $action = $server['REQUEST_SCHEME'].'://'.$server['HTTP_HOST'].'/v1/json/secret';
+
+            $form = <<<FORM
+            <h2>Add a secret</h2>
+<form id="secret-form" method="post" action="{$action}" enctype="application/x-www-form-urlencoded">
+<ul style="list-style-type: none; width: 400px; box-shadow: 2px 2px 6px rgba(0,0,0,.4),-1px -1px 1px rgba(0,0,0,.2); padding: 20px;">
+<li style="padding-bottom: 10px;"><label for="secret" style="width: 180px; display: inline-block;">Secret</label><input type="text" id="secret" name="secret" required></li>
+<li style="padding-bottom: 10px;"><label for="expireAfterViews" style="width: 180px; display: inline-block;">expireAfterViews</label><input type="text" id="expireAfterViews" name="expireAfterViews" required></li>
+<li style="padding-bottom: 10px;"><label for="expireAfter" style="width: 180px; display: inline-block;">expireAfter</label><input type="text" id="expireAfter" name="expireAfter" required></li>
+<li style="text-align: right; padding-right: 50px"><button type="submit" style="margin-top: 20px;cursor:pointer;">Submit</button></li>
+</ul>
+</form>
+FORM;
+
+            $response->getBody()->write($form);
+            return $response;
+        });
+        $this->get('/v1/xml/secret', function (Request $request, Response $response){
+            $server = $request->getServerParams();
+            $action = $server['REQUEST_SCHEME'].'://'.$server['HTTP_HOST'].'/v1/xml/secret';
+
+            $form = <<<FORM
+            <h2>Add a secret</h2>
+<form id="secret-form" method="post" action="{$action}" enctype="application/x-www-form-urlencoded">
+<ul style="list-style-type: none; width: 400px; box-shadow: 2px 2px 6px rgba(0,0,0,.4),-1px -1px 1px rgba(0,0,0,.2); padding: 20px;">
+<li style="padding-bottom: 10px;"><label for="secret" style="width: 180px; display: inline-block;">Secret</label><input type="text" id="secret" name="secret" required></li>
+<li style="padding-bottom: 10px;"><label for="expireAfterViews" style="width: 180px; display: inline-block;">expireAfterViews</label><input type="text" id="expireAfterViews" name="expireAfterViews" required></li>
+<li style="padding-bottom: 10px;"><label for="expireAfter" style="width: 180px; display: inline-block;">expireAfter</label><input type="text" id="expireAfter" name="expireAfter" required></li>
+<li style="text-align: right; padding-right: 50px"><button type="submit" style="margin-top: 20px;cursor:pointer;">Submit</button></li>
+</ul>
+</form>
+FORM;
+
+            $response->getBody()->write($form);
+            return $response;
+        });
         $this->post('/v1/xml/secret', function (Request $request, Response $response){
             $this->requestType = 'xml';
             \Sinkab\SecretServer::addSecret($request,$this);
