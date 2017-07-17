@@ -37,5 +37,7 @@
 <pre>secret=big%20%secret&AMP;expireAfterViews=10&AMP;expireAfter=10</pre>
 <p>2. get a secret: yourdomain/<b>v1/xml | json/secret/secret_hash_code</b> use GET method</p>
 <p>The type of answer is depending of the URL's part <b>xml | json</b></p>
+<h4>Test page</h4>
+<a href="http://secret.w3inn.com/v1/json/secret">testpage</a>
 </body>
 </html>
